@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Talentotrack.common\Talentotrack.common.csproj" />
     <ProjectReference Include="..\Talentotrack.Dao\Talentotrack.Dao.csproj" />
   </ItemGroup>
 
