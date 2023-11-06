@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Talentotrack.common\Talentotrack.common.csproj" />
+  </ItemGroup>
+
 </Project>

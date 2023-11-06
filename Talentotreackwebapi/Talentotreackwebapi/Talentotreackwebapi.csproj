@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Talentotrack.common\Talentotrack.common.csproj" />
     <ProjectReference Include="..\Talentotrack.Dao\Talentotrack.Dao.csproj" />
+    <ProjectReference Include="..\Talentotrack.services\Talentotrack.services.csproj" />
   </ItemGroup>
 
 </Project>
