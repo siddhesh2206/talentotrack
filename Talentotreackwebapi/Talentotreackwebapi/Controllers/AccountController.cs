@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Talentotrack.common.DTOs.Account;
+using Talentotrack.common.services;
 
 namespace Talentotreackwebapi.Controllers
 {
@@ -9,26 +10,18 @@ namespace Talentotreackwebapi.Controllers
     {
 
         private readonly ILogger<AccountController> _logger;
-
-        public AccountController(ILogger<AccountController> logger)
+        private readonly IAccountService _accountService;
+        public AccountController(ILogger<AccountController> logger,IAccountService accountService)
         {
             _logger = logger;
+            _accountService = accountService;
         }
 
         //login web API
         [HttpPost(Name = "Login")]
-        public LoginResponse Login([FromBody] loginrequest request)
+        public async Task<LoginResponse> Login([FromBody] loginrequest request)
         {
-            var response= new LoginResponse();
-           if (request.Username == "admin"&&request.Password=="1234") 
-            {
-            response.sucess=true;
-            }
-           else
-            {
-                response.sucess=false;
-                response.Errormessage = "Invalid login";
-            }
+            var response= await _accountService.VerifyLoginDetails(request);
            return response;
         }
     }

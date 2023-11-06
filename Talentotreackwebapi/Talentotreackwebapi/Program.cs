@@ -1,7 +1,15 @@
 using Microsoft.EntityFrameworkCore;
+using Talentotrack.common.Repositories;
+using Talentotrack.common.services;
 using Talentotrack.Dao.DB;
+using Talentotrack.Dao.Repositories;
+using Talentotrack.services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+
 
 // Add services to the container.
 builder.Services.AddDbContext<TalentotrackDbContext>(options =>
